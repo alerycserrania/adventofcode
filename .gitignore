@@ -1,2 +1,6 @@
 *.exe
 *.o
+*.hi
+puzzle.md
+haskell/
+.meta.yml
