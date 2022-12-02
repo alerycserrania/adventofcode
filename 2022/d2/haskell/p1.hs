@@ -6,15 +6,20 @@ main = do
 
 score (h1, h2) = (beats h2 h1) + (shapeValue h2)
 
-data Hand = R | P | S deriving (Show)
+data Hand = R | P | S deriving (Show, Eq)
 
-beats R P = 0
-beats P R = 6
-beats R S = 6
-beats S R = 0
-beats P S = 0
-beats S P = 6
-beats _ _ = 3
+beats x y 
+  | x == y = 3
+  | (winAgainst x) == y = 0
+  | (loseAgainst x) == y = 6
+
+winAgainst R = P
+winAgainst P = S
+winAgainst S = R
+
+loseAgainst R = S
+loseAgainst P = R
+loseAgainst S = P
 
 shapeValue R = 1
 shapeValue P = 2
