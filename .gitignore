@@ -3,3 +3,5 @@
 *.hi
 puzzle.md
 .meta.yml
+*.input
+*.sample
